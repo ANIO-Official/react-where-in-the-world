@@ -1,3 +1,25 @@
+:root {
+  /*Base Styling Customs*/
+  --input-border-rounded: 0.25vw;
+  --input-border-rounded-mobile: 1vw;
+  --light-mode-background: hsl(0, 0%, 99%);
+  --light-mode-input: hsl(0, 0%, 50%);
+  --light-mode-text: hsl(200, 15%, 8%);
+  --dark-mode-background: hsl(207, 26%, 17%);
+  --dark-mode-elements: hsl(209, 23%, 22%);
+  --drop-shadow: drop-shadow(0 0 0.55rem rgba(88, 88, 88, 0.137));
+
+  /*Accessibility & Interactivity Customs*/
+  --input-focus: hsl(198, 100%, 92%);
+  --button-hover: hsl(198, 78%, 25%);
+  --invalid-notification: hsl(204, 100%, 26%);
+  --invalid-response: hsl(49, 100%, 60%);
+  --valid-response: hsl(145, 81%, 39%);
+  --drop-shadow-focus: drop-shadow(0 0 0.35rem rgba(0, 225, 255, 0.205));
+}
+
+
+
 /*MAIN CONTENT===============================*/
 
 /*Interaction Query Container*/
@@ -43,11 +65,14 @@ ul {
   padding: 0;
   border: none;
   filter: var(--drop-shadow);
+  opacity: 0.8;
 }
 .card:hover {
   outline: 2px solid var(--invalid-notification);
   filter: var(--drop-shadow-focus);
   cursor: pointer;
+  opacity: 1;
+  transform: translateY(-20px);
 }
 
 .card-img-top {

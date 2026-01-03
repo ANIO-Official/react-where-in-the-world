@@ -21,7 +21,6 @@
 #root {
   height: 100vh;
   margin: 0;
-  padding: 2rem;
   text-align: center;
   width: 100vw;
 }
@@ -45,9 +44,13 @@ button.dark,
 
 /*ACCESSIBILITY & INTERACTIVITY=============================*/
 input:focus,
-select:focus,
 button:focus {
   background-color: var(--input-focus);
+  filter: var(--drop-shadow-focus);
+  outline: 2px solid var(--invalid-notification);
+}
+
+select:focus {
   filter: var(--drop-shadow-focus);
   outline: 2px solid var(--invalid-notification);
 }
@@ -58,9 +61,6 @@ button:focus {
   color: white;
 }
 
-input:user-valid {
-  outline: 3px solid var(--valid-response);
-}
 input:user-invalid {
   outline: 3px solid var(--invalid-response);
 }
@@ -111,6 +111,7 @@ header {
 main {
   background-color: var(--light-mode-background);
   padding: 0 8vw;
+  height: 100vh;
 }
 
 /*Responsive Adjustments*/

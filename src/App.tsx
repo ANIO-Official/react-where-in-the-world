@@ -9,7 +9,7 @@ import { useState } from "react";
 function App() {
 
   return (
-    <>
+    <div id="application">
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -18,7 +18,7 @@ function App() {
           element={<DetailedCountryPage />}
         />
       </Routes>
-    </>
+    </div>
   );
 }
 
