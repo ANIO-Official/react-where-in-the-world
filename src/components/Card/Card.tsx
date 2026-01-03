@@ -1,12 +1,16 @@
 //Card Previews for Countries
 
 import { Link } from "react-router-dom";
+import { useThemeContext } from "../../context/ThemeContext";
 
 export default function Card() {
+  //consume the theme context
+      const { theme } = useThemeContext()
+
   return (
     <Link to={`/country/:name/:cca3/detailed-view`}>
       <li
-        className="card-template card col"
+        className={`card-template card col ${theme === 'light' ? 'dark' : 'light'}`}
         tabIndex={0}
         key={`cca3`}
         aria-label="View more country details?"

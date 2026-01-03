@@ -25,6 +25,24 @@
   text-align: center;
   width: 100vw;
 }
+
+/*DARK MODE | THEME=============================*/
+main.dark,
+body.dark {
+  background-color: var(--dark-mode-background);
+  color: white;
+}
+
+header.dark,
+.card.dark,
+input.dark,
+select.dark,
+button.dark,
+#back-button.dark {
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+
 /*ACCESSIBILITY & INTERACTIVITY=============================*/
 input:focus,
 select:focus,

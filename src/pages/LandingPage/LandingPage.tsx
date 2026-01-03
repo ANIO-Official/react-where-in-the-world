@@ -1,10 +1,13 @@
 import Card from "../../components/Card/Card";
 import SearchAndFilterBar from "../../components/SearchAndFilterBar/SearchAndFilterBar";
+import { useThemeContext } from "../../context/ThemeContext";
 import './LandingPage.css'
 
 export default function LandingPage() {
+    //consume the theme context
+    const { theme } = useThemeContext()
   return (
-    <>
+    <main className={`${theme === 'light' ? 'dark' : 'light'}`}>
       <SearchAndFilterBar />
       <section id="main-content-container" className="row pt-4">
         <div id="card-grid-container">
@@ -15,6 +18,6 @@ export default function LandingPage() {
           </ul>
         </div>
       </section>
-    </>
+    </main>
   );
 }

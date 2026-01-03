@@ -2,12 +2,14 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import './DetailedCountryPage.css'
+import { useThemeContext } from "../../context/ThemeContext";
 
 export default function DetailedCountryPage() {
   const navigation = useNavigate();
-
+  //consume the theme context
+  const { theme } = useThemeContext()
   return (
-    <>
+    <main className={`${theme === 'light' ? 'dark' : 'light'}`}>
       <section id="country-details-container" className="row">
         <div id="back-button-container" className="col-12 d-flex">
           <button onClick={() => navigation(-1)} id="back-button">
@@ -85,6 +87,6 @@ export default function DetailedCountryPage() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

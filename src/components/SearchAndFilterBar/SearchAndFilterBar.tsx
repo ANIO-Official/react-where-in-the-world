@@ -1,4 +1,9 @@
+import { useThemeContext } from "../../context/ThemeContext";
+
 export default function SearchAndFilterBar() {
+  //consume the theme context
+  const { theme } = useThemeContext();
+
   return (
     <search
       id="interaction-query-container"
@@ -10,11 +15,11 @@ export default function SearchAndFilterBar() {
       >
         <input
           id="country-search-bar"
-          className="shadow-sm"
+          className={`shadow-sm ${theme === 'light' ? 'dark' : 'light'}`}
           type="search"
           name="search"
           placeholder="Search for a country... Try 'Cambodia!'"
-          minLength= {3}
+          minLength={3}
           pattern="[a-z A-Z]+"
           spellCheck="true"
           aria-label="Search for a country by name."
@@ -24,7 +29,7 @@ export default function SearchAndFilterBar() {
       <div id="region-select-container" className="col-md-2">
         <select
           id="region-select"
-          className="shadow-sm"
+          className={`shadow-sm ${theme === 'light' ? 'dark' : 'light'}`}
           aria-label="Search for countries by region."
         >
           <option value="">Filter by Region</option>

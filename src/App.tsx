@@ -3,8 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import DetailedCountryPage from "./pages/DetailedCountryPage/DetailedCountryPage";
+import type { Theme } from "./types";
+import { useState } from "react";
 
 function App() {
+
   return (
     <>
       <Navbar />
