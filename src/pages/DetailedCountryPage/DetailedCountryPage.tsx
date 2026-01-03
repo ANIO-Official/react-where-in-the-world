@@ -1,15 +1,19 @@
-
 //Show Detailed country view using dynamic data from URL routing &/or context
 
+import { useNavigate } from "react-router-dom";
 
 export default function DetailedCountryPage() {
+  const navigation = useNavigate();
+
   return (
     <>
       <section id="country-details-container" className="row">
         <div id="back-button-container" className="col-12 d-flex">
-          <button id="back-button">⇽ Back</button>
+          <button onClick={() => navigation(-1)} id="back-button">
+            ⇽ Back
+          </button>
         </div>
-         {/*Change to Dynamic Value */}
+        {/*Change to Dynamic Value */}
         <div id="detail-image-container" className="col-md-6">
           <img src="..." id="flag-img" alt="" />
         </div>
@@ -21,7 +25,7 @@ export default function DetailedCountryPage() {
           <div id="detail-panels-container" className="row">
             <div id="detail-panel-left" className="col-md-6">
               <h2 id="information-left">
-               {/*Change All to Dynamic Values */}
+                {/*Change All to Dynamic Values */}
                 <b>Native Name:</b> Belgie
                 <br />
                 <br />
@@ -48,7 +52,7 @@ export default function DetailedCountryPage() {
                 <br />
                 <br />
                 {/*Change to Dynamic Values */}
-                <b>Languages:</b> Dutch, French, German 
+                <b>Languages:</b> Dutch, French, German
                 <br />
               </h2>
             </div>

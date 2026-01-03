@@ -9,7 +9,8 @@ export default function LandingPage() {
       <section id="main-content-container" className="row pt-4">
         <div id="card-grid-container">
           <ul id="cards-batch" className="row row-cols-4">
-            <h2>Loading Country Data...Please Wait (￣o￣) . z Z</h2>
+            {/*loading? 
+            <h2>Loading Country Data...Please Wait (￣o￣) . z Z</h2> : */}
             <Card/>
           </ul>
         </div>
