@@ -1,4 +1,5 @@
 
+//Show Detailed country view using dynamic data from URL routing &/or context
 
 
 export default function DetailedCountryPage() {
@@ -8,17 +9,19 @@ export default function DetailedCountryPage() {
         <div id="back-button-container" className="col-12">
           <button id="back-button">⇽ Back</button>
         </div>
+         {/*Change to Dynamic Value */}
         <div id="detail-image-container" className="col-md-6">
           <img src="..." id="flag-img" alt="" />
         </div>
         <div id="detail-information-container" className="col-md-6 row-cols-md">
           <div id="detail-country-name-container" className="row">
+            {/*Change to Dynamic Value */}
             <p id="detail-country-name">Belgium</p>
           </div>
           <div id="detail-panels-container" className="row">
             <div id="detail-panel-left" className="col-md-6">
               <h2 id="information-left">
-                {/* -Template Literal */}
+               {/*Change All to Dynamic Values */}
                 <b>Native Name:</b> Belgie
                 <br />
                 <br />
@@ -37,14 +40,15 @@ export default function DetailedCountryPage() {
             </div>
             <div id="detail-panel-right" className="col-md-6">
               <h2 id="information-right">
-                {/* -Template Literal */}
+                {/*Change to Dynamic Values */}
                 <b>Top Level Domain:</b> .be
                 <br />
                 <br />
                 <b>Currencies:</b> Euro
                 <br />
                 <br />
-                <b>Languages:</b> Dutch, French, German
+                {/*Change to Dynamic Values */}
+                <b>Languages:</b> Dutch, French, German 
                 <br />
               </h2>
             </div>
@@ -57,10 +61,11 @@ export default function DetailedCountryPage() {
               </h2>
               <div id="detail-border-countries" className="row">
                 {/*
-                    Template Literal of p tags per country
-                    For of / Map / Other method
-                    create a paragraph element for it.
+                    Template Literal 
                     Styled in css
+                    
+                    Refactor Update: JSX map the country's border 
+                    countries into <p> elements.
                     */}
               </div>
             </div>
