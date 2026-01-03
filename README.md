@@ -1,4 +1,4 @@
-# Where in the World? 🌎
+# Where in the World? 🌎 | React Version
 ## Overview
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Additionally, this project aims to assess my ability to build responsive interactive applications using React and TypeScript. I am also challenging myself to show my ability to refactor code from Vanilla JS, HTML, and CSS to TypeScript, JSX, and React (I'm still using Bootstrap and CSS though). 
 

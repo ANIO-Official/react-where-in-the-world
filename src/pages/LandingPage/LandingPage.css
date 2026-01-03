@@ -1,0 +1,130 @@
+/*MAIN CONTENT===============================*/
+
+/*Interaction Query Container*/
+#interaction-query-container {
+  margin: 0 0.5vw;
+  padding: 2vw 0;
+}
+
+#country-search-bar {
+  width: 35vw;
+  height: 3vw;
+  padding-left: 1vw;
+  border-color: transparent;
+  border-radius: var(--input-border-rounded);
+}
+#region-select {
+  height: 3vw;
+  width: 10vw;
+  padding-left: 1vw;
+  margin-left: -3vw;
+  border-color: transparent;
+  border-radius: var(--input-border-rounded);
+
+  appearance: none;
+}
+option {
+  display: flex;
+  border: transparent;
+}
+
+select option:last-of-type {
+  border-radius: 5vw;
+}
+
+/*Cards*/
+ul {
+  gap: 4vw 0;
+}
+.card {
+  width: 16vw;
+  height: fit-content;
+  margin-right: 4vw;
+  padding: 0;
+  border: none;
+  filter: var(--drop-shadow);
+}
+.card:hover {
+  outline: 2px solid var(--invalid-notification);
+  filter: var(--drop-shadow-focus);
+  cursor: pointer;
+}
+
+.card-img-top {
+  height: 9.5vw;
+  background-color: rgb(211, 211, 211);
+}
+.card-body {
+  padding: 1vw;
+}
+
+/*Responsive Adjustments*/
+
+/*TABLETS / MEDIUM SIZE*/
+@media (1560px >= width >= 560px) {
+  /*Interaction Bar*/
+  #interaction-query-container {
+    margin: 0 0.5vw;
+    padding-top: 2vw;
+  }
+  #country-search-bar {
+    width: 45vw;
+    height: 5vw;
+    font-size: 1rem;
+  }
+  #region-select {
+    height: 5vw;
+    width: 15vw;
+    padding-left: 1vw;
+    margin-left: -11vw;
+    font-size: 0.85rem;
+  }
+  /*Cards*/
+  .card {
+    width: 20vw;
+    height: auto;
+  }
+  .card-img-top {
+    height: 12vw;
+  }
+
+  .card-body {
+    font-size: 0.7rem;
+  }
+}
+
+/*MOBILE SMALL*/
+@media (max-width: 550px) {
+  /*Interaction Query Container*/
+  #interaction-query-container {
+    padding-top: 3vw;
+  }
+  #country-search-bar {
+    width: 80vw;
+    height: 10vw;
+    margin-bottom: 10vw;
+    margin-top: 3vw;
+    border-radius: var(--input-border-rounded-mobile);
+  }
+  #region-select {
+    height: 13vw;
+    width: 50vw;
+    margin: 0;
+    border-radius: var(--input-border-rounded-mobile);
+  }
+
+  /*CARDS*/
+  .card {
+    width: 61vw;
+    height: auto;
+    margin: auto 0 10.5vw 5vw;
+  }
+
+  .card-img-top {
+    height: 36vw;
+  }
+  .card-body {
+    font-size: 1rem;
+    padding: 5vw;
+  }
+}
