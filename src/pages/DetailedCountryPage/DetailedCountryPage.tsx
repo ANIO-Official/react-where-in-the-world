@@ -1,6 +1,7 @@
 //Show Detailed country view using dynamic data from URL routing &/or context
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import './DetailedCountryPage.css'
 
 export default function DetailedCountryPage() {
   const navigation = useNavigate();
@@ -69,8 +70,16 @@ export default function DetailedCountryPage() {
                     Styled in css
                     
                     Refactor Update: JSX map the country's border 
-                    countries into <p> elements.
+                    countries into <p> or <button> elements.
+                    Each needs to be within a <Linl> to lead to their
+                    respective country's detailed page. Example below
                     */}
+                    <Link to={`/country/:name/:cca3/detailed-view`}>
+                      <button 
+                      className="detail-border-country col-4">
+                        borderCountry
+                      </button>
+                    </Link>
               </div>
             </div>
           </div>
