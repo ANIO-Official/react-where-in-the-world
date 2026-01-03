@@ -5,8 +5,8 @@
 export default function DetailedCountryPage() {
   return (
     <>
-      <section id="country-details-container" className="row" hidden>
-        <div id="back-button-container" className="col-12">
+      <section id="country-details-container" className="row">
+        <div id="back-button-container" className="col-12 d-flex">
           <button id="back-button">⇽ Back</button>
         </div>
          {/*Change to Dynamic Value */}
