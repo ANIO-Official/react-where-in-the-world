@@ -29,13 +29,14 @@ export default function LandingPage() {
             ) : error ? (
               <h2>Error Loading Country Data 🚫</h2>
             ) : (
-              data.map((obj: countryDataStructure) => (
+              data.map((obj: countryDataStructure, index) => (
                 <Card
                   img={obj.flags.png}
                   name={obj.name.common}
                   population={obj.population}
                   region={obj.region}
                   capital={obj.capital[0]}
+                  index = {index}
                 />
               ))
             )}

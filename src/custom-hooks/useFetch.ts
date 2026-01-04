@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 export default function useFetch(url: string, options?: RequestInit) {
-  //use a generic blank array, as union types can cause errors here when accessing data
-  const [data, setData] = useState<[]>([])
+  //use a generic array, as union types can cause errors here when accessing data
+  const [data, setData] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 

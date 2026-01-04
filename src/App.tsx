@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route
-          path="/country/:name/:cca3/detailed-view"
+          path="/country/:name/detailed-view"
           element={<DetailedCountryPage />}
         />
       </Routes>

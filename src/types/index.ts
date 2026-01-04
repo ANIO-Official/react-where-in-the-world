@@ -7,6 +7,7 @@ export interface CardProps{
     population: number
     region: string
     capital: string
+    index: number
 }
 
 export type Theme = 'light' | 'dark'
@@ -38,4 +39,3 @@ export interface countryCodeDataStructure {
   name: { common: string; official: string; nativeName: object };
   cca3: string;
 }
-
