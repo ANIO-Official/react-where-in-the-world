@@ -4,15 +4,17 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "./DetailedCountryPage.css";
 import { useThemeContext } from "../../context/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
+import BorderCountryButton from "../../components/BorderCountryButton";
 
 export default function DetailedCountryPage() {
   const navigation = useNavigate();
   const { name } = useParams();
 
-  function getLastKey(object: {}){
+  //utility functions
+  function getLastKey(object: {}) {
     if (object !== null && object !== undefined) {
-      const keysArray = Object.keys(object)
-      return keysArray[keysArray.length - 1]
+      const keysArray = Object.keys(object);
+      return keysArray[keysArray.length - 1];
     }
   }
 
@@ -28,7 +30,6 @@ export default function DetailedCountryPage() {
   const { data, loading, error } = useFetch(
     `https://restcountries.com/v3.1/name/${name}?fullText=true`
   );
-  console.log("is Loading", loading, " is Error? ", error, " got Data? ", data);
 
   //consume the theme context
   const { theme } = useThemeContext();
@@ -65,7 +66,11 @@ export default function DetailedCountryPage() {
                     <h2 id="information-left">
                       {/*Change All to Dynamic Values */}
                       <b>Native Name:</b>{" "}
-                      {`${data[0].name.nativeName[getLastKey(data[0].name.nativeName)].common}`}
+                      {`${
+                        data[0].name.nativeName[
+                          getLastKey(data[0].name.nativeName)
+                        ].common
+                      }`}
                       <br />
                       <br />
                       <b>Population:</b> {data[0].population}
@@ -88,7 +93,9 @@ export default function DetailedCountryPage() {
                       <br />
                       <br />
                       <b>Currencies:</b>{" "}
-                      {`${data[0].currencies[getLastKey(data[0].currencies)].name}`}
+                      {`${
+                        data[0].currencies[getLastKey(data[0].currencies)].name
+                      }`}
                       <br />
                       <br />
                       {/*Change to Dynamic Values */}
@@ -113,12 +120,16 @@ export default function DetailedCountryPage() {
                     countries into <p> or <button> elements.
                     Each needs to be within a <Linl> to lead to their
                     respective country's detailed page. Example below
-                    */}
-                      <Link to={`/country/:name/:cca3/detailed-view`}>
-                        <button className="detail-border-country col-4">
-                          borderCountry
-                        </button>
-                      </Link>
+                    */} 
+                    { data[0].hasOwnProperty('borders') ?
+                      
+                      data[0].borders.map((cca3:string) =>
+                        <BorderCountryButton
+                        cca3={cca3}
+                        />
+                      ) :
+                      <p> This country has no bordering countries. How lonely!(_　_)。゜zｚＺ</p>
+                    }
                     </div>
                   </div>
                 </div>

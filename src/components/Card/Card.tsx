@@ -10,19 +10,19 @@ export default function Card({
   population,
   region,
   capital,
-  index,
+  cca3,
 }: CardProps) {
   //consume the theme context
   const { theme } = useThemeContext();
 
   return (
-    <Link to={`/country/${name}/detailed-view`}>
+    <Link to={`/country/${name}/${cca3}/detailed-view`}>
       <li
         className={`card-template card col ${
           theme === "light" ? "dark" : "light"
         }`}
         tabIndex={0}
-        key={`${name.split(' ')[0]}${index}`} //UNIQUE KEY
+        key={cca3} //UNIQUE KEY
         aria-label="View more country details?"
       >
         <img src={img} className="card-img-top" alt="national-flag" />

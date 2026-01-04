@@ -2,7 +2,6 @@ import Card from "../../components/Card/Card";
 import SearchAndFilterBar from "../../components/SearchAndFilterBar/SearchAndFilterBar";
 import { useThemeContext } from "../../context/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
-import type { countryDataStructure } from "../../types";
 import "./LandingPage.css";
 
 export default function LandingPage() {
@@ -11,7 +10,7 @@ export default function LandingPage() {
 
   //Get All the country Data
   const { data, loading, error } = useFetch(
-    "https://restcountries.com/v3.1/all?fields=flags,name,population,region,subregion,capital,tld,currencies,languages,borders"
+    "https://restcountries.com/v3.1/all?fields=flags,name,population,region,capital,cca3"
   );
 
   return (
@@ -29,18 +28,17 @@ export default function LandingPage() {
             ) : error ? (
               <h2>Error Loading Country Data 🚫</h2>
             ) : (
-              data.map((obj: countryDataStructure, index) => (
+              data.map((obj) => (
                 <Card
                   img={obj.flags.png}
                   name={obj.name.common}
                   population={obj.population}
                   region={obj.region}
                   capital={obj.capital[0]}
-                  index = {index}
+                  cca3 = {obj.cca3}
                 />
               ))
             )}
-            {/* <Card /> */}
           </ul>
         </div>
       </section>

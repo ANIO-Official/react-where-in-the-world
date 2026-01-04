@@ -7,7 +7,7 @@ export interface CardProps{
     population: number
     region: string
     capital: string
-    index: number
+    cca3: string
 }
 
 export type Theme = 'light' | 'dark'
