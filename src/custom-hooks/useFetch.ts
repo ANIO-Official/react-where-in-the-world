@@ -1,22 +1,5 @@
 import { useState, useEffect } from "react";
-
-interface countryDataStructure {
-  flags: { png: string; svg: string; alt: string };
-  name: { common: string; official: string; nativeName: object };
-  tld: string;
-  currencies: object;
-  capital: [string];
-  region: string;
-  subregion: string;
-  languages: object;
-  borders: [string];
-  population: number;
-}
-
-interface countryCodeDataStructure {
-  name: { common: string; official: string; nativeName: object };
-  cca3: string;
-}
+import type { countryDataStructure, countryCodeDataStructure } from "../types";
 
 //Set and Return data depending on url string. 
 
