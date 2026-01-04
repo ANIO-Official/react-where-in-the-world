@@ -1,5 +1,14 @@
 import type { ReactNode } from "react"
 
+
+export interface CardProps{
+    img: string
+    name: string
+    population: number
+    region: string
+    capital: string
+}
+
 export type Theme = 'light' | 'dark'
 
 //Shape the context
@@ -29,3 +38,4 @@ export interface countryCodeDataStructure {
   name: { common: string; official: string; nativeName: object };
   cca3: string;
 }
+

@@ -19,7 +19,7 @@
 }
 
 #root {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   text-align: center;
   width: 100vw;
@@ -111,7 +111,7 @@ header {
 main {
   background-color: var(--light-mode-background);
   padding: 0 8vw;
-  height: 100vh;
+  height: 100%;
 }
 
 /*Responsive Adjustments*/

@@ -2,28 +2,39 @@
 
 import { Link } from "react-router-dom";
 import { useThemeContext } from "../../context/ThemeContext";
+import type { CardProps } from "../../types";
 
-export default function Card() {
+export default function Card({
+  img,
+  name,
+  population,
+  region,
+  capital,
+}: CardProps) {
   //consume the theme context
-      const { theme } = useThemeContext()
+  const { theme } = useThemeContext();
 
   return (
     <Link to={`/country/:name/:cca3/detailed-view`}>
       <li
-        className={`card-template card col ${theme === 'light' ? 'dark' : 'light'}`}
+        className={`card-template card col ${
+          theme === "light" ? "dark" : "light"
+        }`}
         tabIndex={0}
         key={`cca3`}
         aria-label="View more country details?"
       >
-        <img src="..." className="card-img-top" alt="national-flag" />
+        <img src={img} className="card-img-top" alt="national-flag" />
         <div className="card-body">
-          <h2 className="card-title">Country Name</h2>
+          <h2 className="card-title">
+            {name[0].toUpperCase() + name.slice(1)}
+          </h2>
           <p className="card-text pb-4 pt-1">
-            <b>Population:</b> 99,999,999
+            <b>Population:</b> {population}
             <br />
-            <b>Region:</b> Europe
+            <b>Region:</b> {region}
             <br />
-            <b>Capital:</b> Belin
+            <b>Capital:</b> {capital}
             <br />
           </p>
         </div>

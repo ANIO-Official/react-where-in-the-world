@@ -1,30 +1,8 @@
 import { useState, useEffect } from "react";
-import type { countryDataStructure, countryCodeDataStructure } from "../types";
-
-//Set and Return data depending on url string. 
 
 export default function useFetch(url: string, options?: RequestInit) {
-  const [data, setData] = useState<
-    countryDataStructure | countryCodeDataStructure
-  >(
-    url.includes("population") //Check if fetching for all fields
-      ? {
-          flags: { png: "", svg: "", alt: "" },
-          name: { common: "", official: "", nativeName: {} },
-          tld: "",
-          currencies: {},
-          capital: [""],
-          region: "",
-          subregion: "",
-          languages: {},
-          borders: [""],
-          population: 0,
-        }
-      : { //Return when fetching codes only
-          name: { common: "", official: "", nativeName: {} },
-          cca3: "",
-        }
-  );
+  //use a generic blank array, as union types can cause errors here when accessing data
+  const [data, setData] = useState<[]>([])
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -32,25 +10,7 @@ export default function useFetch(url: string, options?: RequestInit) {
     if (!url) return;
 
     const controller = new AbortController();
-    setData(
-      url.includes("population")//Check if fetching for all fields
-        ? {
-            flags: { png: "", svg: "", alt: "" },
-            name: { common: "", official: "", nativeName: {} },
-            tld: "",
-            currencies: {},
-            capital: [""],
-            region: "",
-            subregion: "",
-            languages: {},
-            borders: [""],
-            population: 0,
-          }
-        : { //Return when fetching codes only
-            name: { common: "", official: "", nativeName: {} },
-            cca3: "",
-          }
-    );
+    setData([]);
     setError(null);
     setLoading(true);
 
