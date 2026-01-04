@@ -2,8 +2,7 @@
 
 import { Link } from "react-router-dom";
 import { useThemeContext } from "../../context/ThemeContext";
-import type { CardProps, countryCodeDataStructure } from "../../types";
-import useFetch from "../../custom-hooks/useFetch";
+import type { CardProps } from "../../types";
 
 export default function Card({
   img,
@@ -15,8 +14,9 @@ export default function Card({
 }: CardProps) {
   //consume the theme context
   const { theme } = useThemeContext();
+
   return (
-    <Link to={`/country/${name}}/detailed-view`}>
+    <Link to={`/country/${name}/detailed-view`}>
       <li
         className={`card-template card col ${
           theme === "light" ? "dark" : "light"
@@ -28,7 +28,7 @@ export default function Card({
         <img src={img} className="card-img-top" alt="national-flag" />
         <div className="card-body">
           <h2 className="card-title">
-            {name[0].toUpperCase() + name.slice(1)}
+            {name}
           </h2>
           <p className="card-text pb-4 pt-1">
             <b>Population:</b> {population}
