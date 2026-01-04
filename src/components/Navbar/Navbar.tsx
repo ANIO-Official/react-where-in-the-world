@@ -1,5 +1,6 @@
 //Main Navigation Bar
 
+import { Link } from "react-router-dom";
 import { useThemeContext } from "../../context/ThemeContext";
 
 export default function Navbar() {
@@ -22,7 +23,7 @@ export default function Navbar() {
           id="header-message-container"
           className="row-cols-md d-flex align-items-center"
         >
-          <h1>Where in the world?</h1>
+          <Link to='/'><h1>Where in the world?</h1></Link>
         </div>
         <div
           id="theme-toggler-container"

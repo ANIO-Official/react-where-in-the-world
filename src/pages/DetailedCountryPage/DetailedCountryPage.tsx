@@ -1,6 +1,6 @@
 //Show Detailed country view using dynamic data from URL routing &/or context
 
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./DetailedCountryPage.css";
 import { useThemeContext } from "../../context/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
