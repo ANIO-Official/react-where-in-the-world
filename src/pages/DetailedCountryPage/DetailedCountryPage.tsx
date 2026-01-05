@@ -2,9 +2,9 @@
 
 import { useNavigate, useParams } from "react-router-dom";
 import "./DetailedCountryPage.css";
-import { useThemeContext } from "../../context/ThemeContext";
+import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
-import BorderCountryButton from "../../components/BorderCountryButton";
+import BorderCountryButton from "../../components/BorderCountryButton/BorderCountryButton";
 
 export default function DetailedCountryPage() {
   const navigation = useNavigate();

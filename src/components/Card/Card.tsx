@@ -1,7 +1,7 @@
 //Card Previews for Countries
 
 import { Link } from "react-router-dom";
-import { useThemeContext } from "../../context/ThemeContext";
+import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 import type { CardProps } from "../../types";
 
 export default function Card({

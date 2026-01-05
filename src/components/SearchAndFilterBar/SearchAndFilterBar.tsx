@@ -1,4 +1,4 @@
-import { useThemeContext } from "../../context/ThemeContext";
+import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 
 export default function SearchAndFilterBar() {
   //consume the theme context

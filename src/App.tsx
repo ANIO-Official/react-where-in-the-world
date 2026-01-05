@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import DetailedCountryPage from "./pages/DetailedCountryPage/DetailedCountryPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           path="/country/:name/:cca3/detailed-view"
           element={<DetailedCountryPage />}
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );

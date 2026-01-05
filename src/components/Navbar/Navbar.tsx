@@ -1,7 +1,7 @@
 //Main Navigation Bar
 
 import { Link } from "react-router-dom";
-import { useThemeContext } from "../../context/ThemeContext";
+import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 
 export default function Navbar() {
   //consume the theme context

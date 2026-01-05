@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import useFetch from "../custom-hooks/useFetch";
+import useFetch from "../../custom-hooks/useFetch";
 
 interface BorderCountryButtonProps {
     cca3: string

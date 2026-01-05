@@ -1,6 +1,6 @@
 import Card from "../../components/Card/Card";
 import SearchAndFilterBar from "../../components/SearchAndFilterBar/SearchAndFilterBar";
-import { useThemeContext } from "../../context/ThemeContext";
+import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
 import "./LandingPage.css";
 

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { ContextProviderProps, Theme, ThemeContextType } from "../types";
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "./ThemeContext/ThemeContext";
 
 export default function ContextProvider({ children }: ContextProviderProps) {
   //state for theme
