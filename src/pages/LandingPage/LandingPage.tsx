@@ -3,10 +3,14 @@ import SearchAndFilterBar from "../../components/SearchAndFilterBar/SearchAndFil
 import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
 import "./LandingPage.css";
+import { useFilterContext } from "../../context/FilterContext/FilterContext";
 
 export default function LandingPage() {
   //consume the theme context
   const { theme } = useThemeContext();
+
+  const { currentFilter } = useFilterContext();
+  console.log(currentFilter)
 
   //Get All the country Data
   const { data, loading, error } = useFetch(
@@ -27,7 +31,43 @@ export default function LandingPage() {
               </h2>
             ) : error ? (
               <h2>Error Loading Country Data 🚫</h2>
+              //Figure out how to allow both filters to work
+            // ) : currentFilter === "Africa" ||
+            //   "America" ||
+            //   "Asia" ||
+            //   "Europe" ||
+            //   "Oceania" ? (
+            //   data.map(
+            //     (obj) =>
+            //       obj.region.includes(currentFilter) && (
+            //         <Card
+            //           img={obj.flags.png}
+            //           name={obj.name.common}
+            //           population={obj.population}
+            //           region={obj.region}
+            //           capital={obj.capital[0]}
+            //           cca3={obj.cca3}
+            //         />
+            //       )
+            //   )
+            ) : currentFilter !== "" ? ( //search bar typing search
+              data.map(
+                (obj) =>
+                  obj.name.common
+                    .toLowerCase()
+                    .includes(currentFilter.toLowerCase()) && (
+                    <Card
+                      img={obj.flags.png}
+                      name={obj.name.common}
+                      population={obj.population}
+                      region={obj.region}
+                      capital={obj.capital[0]}
+                      cca3={obj.cca3}
+                    />
+                  )
+              )
             ) : (
+              //show all
               data.map((obj) => (
                 <Card
                   img={obj.flags.png}
@@ -35,7 +75,7 @@ export default function LandingPage() {
                   population={obj.population}
                   region={obj.region}
                   capital={obj.capital[0]}
-                  cca3 = {obj.cca3}
+                  cca3={obj.cca3}
                 />
               ))
             )}

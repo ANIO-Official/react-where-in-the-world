@@ -35,6 +35,7 @@
   border-color: transparent;
   border-radius: var(--input-border-rounded);
 }
+
 #region-select {
   height: 3vw;
   width: 10vw;

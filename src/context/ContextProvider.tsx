@@ -1,6 +1,12 @@
 import { useMemo, useState } from "react";
-import type { ContextProviderProps, Theme, ThemeContextType } from "../types";
+import type {
+  ContextProviderProps,
+  FilterContextType,
+  Theme,
+  ThemeContextType,
+} from "../types";
 import { ThemeContext } from "./ThemeContext/ThemeContext";
+import { FilterContext } from "./FilterContext/FilterContext";
 
 export default function ContextProvider({ children }: ContextProviderProps) {
   //state for theme
@@ -9,6 +15,13 @@ export default function ContextProvider({ children }: ContextProviderProps) {
   //Function for toggling theme state
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  //Setting Filter Value & Updating the Filters
+  const [currentFilter, setFilters] = useState(""); //all(''), specified
+
+  const setFilter = (filter: string) => {
+    setFilters(filter);
   };
 
   //All Context Values
@@ -20,9 +33,19 @@ export default function ContextProvider({ children }: ContextProviderProps) {
     [theme]
   );
 
+  const filterContextValue: FilterContextType = useMemo(
+    () => ({
+      setFilter: setFilter,
+      currentFilter: currentFilter
+    }),
+    [currentFilter]
+  );
+
   return (
-    <ThemeContext.Provider value={themeContextValue}>
-      {children}
-    </ThemeContext.Provider>
+    <FilterContext.Provider value={filterContextValue}>
+      <ThemeContext.Provider value={themeContextValue}>
+        {children}
+      </ThemeContext.Provider>
+    </FilterContext.Provider>
   );
 }

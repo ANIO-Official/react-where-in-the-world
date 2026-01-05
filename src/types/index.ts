@@ -18,6 +18,11 @@ export interface ThemeContextType{
     theme: Theme
 }
 
+export interface FilterContextType{
+  setFilter: (filter:string) => void
+  currentFilter: string
+}
+
 export interface ContextProviderProps {
     children: ReactNode
 }

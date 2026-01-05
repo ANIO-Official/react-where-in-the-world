@@ -47,6 +47,7 @@ button.dark,
 input:focus,
 button:focus {
   background-color: var(--input-focus);
+  color: rgb(39, 37, 37);
   filter: var(--drop-shadow-focus);
   outline: 2px solid var(--invalid-notification);
 }

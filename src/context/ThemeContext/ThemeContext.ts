@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import type { Theme, ThemeContextType} from '../../types';
+import type { ThemeContextType} from '../../types';
 
 
 
@@ -8,7 +8,7 @@ import type { Theme, ThemeContextType} from '../../types';
 export const ThemeContext = React.createContext<ThemeContextType | undefined>(undefined)
 
 //Create a Toggle function as a custom Hook
-//Consumes the theme and throws error when not setup properly
+//Consumes the context and throws error when not setup properly
 export const useThemeContext = () => {
     const themeContext = useContext(ThemeContext)
     

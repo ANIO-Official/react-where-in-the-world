@@ -1,8 +1,36 @@
+import { useState } from "react";
+import { useFilterContext } from "../../context/FilterContext/FilterContext";
 import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 
 export default function SearchAndFilterBar() {
   //consume the theme context
   const { theme } = useThemeContext();
+
+  //State and state change on new Query Typed in Searchbar
+  const [query, setQuery] = useState('')
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
+      const newValue = event.target.value
+      setQuery(newValue)
+  }
+
+  //Set new fitler upon enter of search bar or change of select element
+  const {setFilter} = useFilterContext()
+  const handleFilterChangeOnSearch = (event: React.KeyboardEvent) =>{
+    if(event.key === 'Enter'){
+      setFilter(query)
+    }
+  }
+  const handleFilterChangeOnSelect = (event: React.ChangeEvent<HTMLSelectElement>)=>{
+    const newValue = event.target.value
+      setFilter(newValue)
+  }
+  
+   //show all when blank and unfocused
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) =>{
+    if(query === ''){
+      setFilter(query)
+    }
+  }
 
   return (
     <search
@@ -14,6 +42,9 @@ export default function SearchAndFilterBar() {
         className="col-md-10 d-flex flex-column"
       >
         <input
+          onChange={handleChange}
+          onKeyUp={handleFilterChangeOnSearch}
+          onBlur={handleBlur}
           id="country-search-bar"
           className={`shadow-sm ${theme === 'light' ? 'dark' : 'light'}`}
           type="search"
@@ -28,6 +59,7 @@ export default function SearchAndFilterBar() {
       </div>
       <div id="region-select-container" className="col-md-2">
         <select
+          onChange={handleFilterChangeOnSelect}
           id="region-select"
           className={`shadow-sm ${theme === 'light' ? 'dark' : 'light'}`}
           aria-label="Search for countries by region."
