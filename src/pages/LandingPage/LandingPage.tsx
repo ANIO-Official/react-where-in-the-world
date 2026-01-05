@@ -10,7 +10,7 @@ export default function LandingPage() {
   const { theme } = useThemeContext();
 
   const { currentFilter } = useFilterContext();
-  console.log(currentFilter)
+  console.log(currentFilter);
 
   //Get All the country Data
   const { data, loading, error } = useFetch(
@@ -24,32 +24,42 @@ export default function LandingPage() {
         <div id="card-grid-container">
           <ul id="cards-batch" className="row row-cols-4">
             {loading ? (
-              <li key='loadingText'>
+              <li
+                key="loadingText"
+                className="col-12"
+                style={{ listStyle: "none", width: "max-content" }}
+              >
                 Loading Country Data...
                 <br />
                 Please Wait (￣o￣) . z Z
               </li>
             ) : error ? (
-              <li key='errorText'>Error Loading Country Data 🚫</li>
-              //Figure out how to allow both filters to work
-            // ) : currentFilter === "Africa" ||
-            //   "America" ||
-            //   "Asia" ||
-            //   "Europe" ||
-            //   "Oceania" ? (
-            //   data.map(
-            //     (obj) =>
-            //       obj.region.includes(currentFilter) && (
-            //         <Card
-            //           img={obj.flags.png}
-            //           name={obj.name.common}
-            //           population={obj.population}
-            //           region={obj.region}
-            //           capital={obj.capital[0]}
-            //           cca3={obj.cca3}
-            //         />
-            //       )
-            //   )
+              <li
+                key="errorText"
+                className="col-12"
+                style={{ listStyle: "none", width: "max-content" }}
+              >
+                Error Loading Country Data 🚫
+              </li>
+            ) : //Filter By Region Select when the filter is set to any of the following values.
+              currentFilter === "Africa" ||
+              currentFilter === "America" ||
+              currentFilter === "Asia" ||
+              currentFilter === "Europe" ||
+              currentFilter === "Oceania" ? (
+              data.map(
+                (obj) =>
+                  obj.region.includes(currentFilter) && (
+                    <Card
+                      img={obj.flags.png}
+                      name={obj.name.common}
+                      population={obj.population}
+                      region={obj.region}
+                      capital={obj.capital[0]}
+                      cca3={obj.cca3}
+                    />
+                  )
+              )
             ) : currentFilter !== "" ? ( //search bar typing search
               data.map(
                 (obj) =>
