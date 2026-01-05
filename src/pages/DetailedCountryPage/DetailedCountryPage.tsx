@@ -46,12 +46,12 @@ export default function DetailedCountryPage() {
         ) : (
           data.length && (
             <>
-              <div id="detail-image-container" className="col-md-6">
-                <img src={data[0].flags.png} id="flag-img" alt="" />
+              <div id="detail-image-container" className="col-md-6 text-start">
+                <img src={data[0].flags.png} id="flag-img" alt={data[0].flags.alt} />
               </div>
               <div
                 id="detail-information-container"
-                className="col-md-6 row-cols-md"
+                className="col-md-6 row-cols-md text-start"
               >
                 <div id="detail-country-name-container" className="row">
                   {/*Change to Dynamic Value */}
@@ -108,14 +108,11 @@ export default function DetailedCountryPage() {
                       <b>Border Countries:</b>
                     </h2>
                     <div id="detail-border-countries" className="row">
-                      {/*
-                    Template Literal 
-                    Styled in css
-                    
+                      {/*                   
                     Refactor Update: JSX map the country's border 
                     countries into <p> or <button> elements.
-                    Each needs to be within a <Linl> to lead to their
-                    respective country's detailed page. Example below
+                    Each needs to be within a <Link> to lead to their
+                    respective country's detailed page.
                     */}
                       {data[0].hasOwnProperty('borders') ?
 
@@ -124,7 +121,7 @@ export default function DetailedCountryPage() {
                             cca3={cca3}
                           />
                         ) :
-                        <p> This country has no bordering countries. How lonely!(_　_)。゜zｚＺ</p>
+                        <p className="col-12"> This country has no bordering countries. How lonely!(_　_)。゜zｚＺ</p>
                       }
                     </div>
                   </div>

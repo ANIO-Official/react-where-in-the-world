@@ -52,6 +52,15 @@ button:focus {
   outline: 2px solid var(--invalid-notification);
 }
 
+button.dark:focus {
+  background-color: var(--input-focus);
+  color: rgb(255, 255, 255);
+  filter: var(--drop-shadow-focus);
+  outline: 2px solid var(--invalid-notification);
+}
+
+
+
 select:focus {
   filter: var(--drop-shadow-focus);
   outline: 2px solid var(--invalid-notification);
