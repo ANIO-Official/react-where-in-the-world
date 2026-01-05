@@ -24,13 +24,13 @@ export default function LandingPage() {
         <div id="card-grid-container">
           <ul id="cards-batch" className="row row-cols-4">
             {loading ? (
-              <h2>
+              <li key='loadingText'>
                 Loading Country Data...
                 <br />
                 Please Wait (￣o￣) . z Z
-              </h2>
+              </li>
             ) : error ? (
-              <h2>Error Loading Country Data 🚫</h2>
+              <li key='errorText'>Error Loading Country Data 🚫</li>
               //Figure out how to allow both filters to work
             // ) : currentFilter === "Africa" ||
             //   "America" ||
@@ -76,6 +76,7 @@ export default function LandingPage() {
                   region={obj.region}
                   capital={obj.capital[0]}
                   cca3={obj.cca3}
+                  key={`${obj.cca3}-card`}
                 />
               ))
             )}

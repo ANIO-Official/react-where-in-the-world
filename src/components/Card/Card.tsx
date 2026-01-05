@@ -16,7 +16,7 @@ export default function Card({
   const { theme } = useThemeContext();
 
   return (
-    <Link to={`/country/${name}/${cca3}/detailed-view`}>
+    <Link to={`/country/${name}/${cca3}/detailed-view`} key={`${cca3}-link`}>
       <li
         className={`card-template card col ${
           theme === "light" ? "dark" : "light"
