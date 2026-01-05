@@ -27,9 +27,7 @@ export default function Card({
       >
         <img src={img} className="card-img-top" alt="national-flag" />
         <div className="card-body">
-          <h2 className="card-title">
-            {name}
-          </h2>
+          <h2 className="card-title">{name}</h2>
           <p className="card-text pb-4 pt-1">
             <b>Population:</b> {population}
             <br />

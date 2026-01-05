@@ -47,7 +47,11 @@ export default function DetailedCountryPage() {
           data.length && (
             <>
               <div id="detail-image-container" className="col-md-6 text-start">
-                <img src={data[0].flags.png} id="flag-img" alt={data[0].flags.alt} />
+                <img
+                  src={data[0].flags.png}
+                  id="flag-img"
+                  alt={data[0].flags.alt}
+                />
               </div>
               <div
                 id="detail-information-container"
@@ -64,11 +68,12 @@ export default function DetailedCountryPage() {
                     <h2 id="information-left">
                       {/*Change All to Dynamic Values */}
                       <b>Native Name:</b>{" "}
-                      {`${data[0].name.nativeName[
+                      {`${
+                        data[0].name.nativeName[
                           data[0].name.nativeName &&
-                          getLastKey(data[0].name.nativeName)
+                            getLastKey(data[0].name.nativeName)
                         ].common
-                        }`}
+                      }`}
                       <br />
                       <br />
                       <b>Population:</b> {data[0].population}
@@ -91,7 +96,11 @@ export default function DetailedCountryPage() {
                       <br />
                       <br />
                       <b>Currencies:</b>{" "}
-                      {data[0].currencies[data[0].currencies && getLastKey(data[0].currencies)]?.name}
+                      {
+                        data[0].currencies[
+                          data[0].currencies && getLastKey(data[0].currencies)
+                        ]?.name
+                      }
                       <br />
                       <br />
                       {/*Change to Dynamic Values */}
@@ -114,15 +123,17 @@ export default function DetailedCountryPage() {
                     Each needs to be within a <Link> to lead to their
                     respective country's detailed page.
                     */}
-                      {data[0].hasOwnProperty('borders') ?
-
-                        data[0].borders.map((cca3: string) =>
-                          <BorderCountryButton
-                            cca3={cca3}
-                          />
-                        ) :
-                        <p className="col-12"> This country has no bordering countries. How lonely!(_　_)。゜zｚＺ</p>
-                      }
+                      {data[0].hasOwnProperty("borders") ? (
+                        data[0].borders.map((cca3: string) => (
+                          <BorderCountryButton cca3={cca3} />
+                        ))
+                      ) : (
+                        <p className="col-12">
+                          {" "}
+                          This country has no bordering countries. How
+                          lonely!(_　_)。゜zｚＺ
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>

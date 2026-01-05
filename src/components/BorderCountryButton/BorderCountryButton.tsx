@@ -11,7 +11,6 @@ export default function BorderCountryButton({
   const { data, loading, error } = useFetch(
     `https://restcountries.com/v3.1/alpha/${cca3}`
   );
-  console.log("is Loading", loading, " is Error? ", error, " got Data? ", data);
 
   return (
     <>
