@@ -21,16 +21,14 @@ export default function DetailedCountryPage() {
   //Return all properties of the passed object
   function getAllValues(object: {}) {
     if (object !== null && object !== undefined) {
-      const allValues = Object.values(object);
+      const allValues: any[] = Object.values(object);
       return allValues;
     }
   }
-
   //Get Specific country Data
   const { data, loading, error } = useFetch(
     `https://restcountries.com/v3.1/name/${name}?fullText=true`
   );
-
   //consume the theme context
   const { theme } = useThemeContext();
   return (
@@ -66,11 +64,11 @@ export default function DetailedCountryPage() {
                     <h2 id="information-left">
                       {/*Change All to Dynamic Values */}
                       <b>Native Name:</b>{" "}
-                      {`${
-                        data[0].name.nativeName[
+                      {`${data[0].name.nativeName[
+                          data[0].name.nativeName &&
                           getLastKey(data[0].name.nativeName)
                         ].common
-                      }`}
+                        }`}
                       <br />
                       <br />
                       <b>Population:</b> {data[0].population}
@@ -93,14 +91,12 @@ export default function DetailedCountryPage() {
                       <br />
                       <br />
                       <b>Currencies:</b>{" "}
-                      {`${
-                        data[0].currencies[getLastKey(data[0].currencies)].name
-                      }`}
+                      {data[0].currencies[data[0].currencies && getLastKey(data[0].currencies)]?.name}
                       <br />
                       <br />
                       {/*Change to Dynamic Values */}
                       <b>Languages:</b>{" "}
-                      {`${getAllValues(data[0].languages).join(", ")}`}
+                      {getAllValues(data[0].languages)?.join(", ")}
                       <br />
                     </h2>
                   </div>
@@ -120,16 +116,16 @@ export default function DetailedCountryPage() {
                     countries into <p> or <button> elements.
                     Each needs to be within a <Linl> to lead to their
                     respective country's detailed page. Example below
-                    */} 
-                    { data[0].hasOwnProperty('borders') ?
-                      
-                      data[0].borders.map((cca3:string) =>
-                        <BorderCountryButton
-                        cca3={cca3}
-                        />
-                      ) :
-                      <p> This country has no bordering countries. How lonely!(_　_)。゜zｚＺ</p>
-                    }
+                    */}
+                      {data[0].hasOwnProperty('borders') ?
+
+                        data[0].borders.map((cca3: string) =>
+                          <BorderCountryButton
+                            cca3={cca3}
+                          />
+                        ) :
+                        <p> This country has no bordering countries. How lonely!(_　_)。゜zｚＺ</p>
+                      }
                     </div>
                   </div>
                 </div>
