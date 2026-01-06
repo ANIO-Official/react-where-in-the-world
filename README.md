@@ -116,7 +116,7 @@ Brief about my process. Here are my steps:
  
  **Challenges faced**
   
-  A challenged I faced occured when I tried typing the data recieved while fetching. Due to using ane empty array, multiple errors occured when trying to access data later when using the .map() method. It resulted in the warning below:
+  A challenged I faced occured when I tried typing the data recieved while fetching. Due to using an empty array, multiple errors occured when trying to access data later when using the .map() method. It resulted in the warning below:
 
  `Property 'cca3' does not exist on type 'never'.ts(2339)`
 
@@ -125,12 +125,30 @@ Brief about my process. Here are my steps:
 
  **Solutions implemented**
   
-  ```
- 
+  I decided to remove specific typing from the useFetch and the 'obj' iterated through in the map() and instead state it as type 'any. 
+  
+  ```TSX
+  //usefetch 
+  const [data, setData] = useState<any[]>([])
+
+
+  // 'obj' without type to reduce errors.
+ data.map((obj) => (
+                <Card
+                  img={obj.flags.png}
+                  name={obj.name.common}
+                  population={obj.population}
+                  region={obj.region}
+                  capital={obj.capital[0]}
+                  cca3={obj.cca3}
+                  key={`${obj.cca3}-card`}
+                />
+              ))
   ```
 
 **Potential improvements**
 
+  I would like to find a better way to specify typing of the fetched data and the obj iterated. I like when TypeScript is able to provide auto-complete suggestions based on interface types created. But with my prvious attempt at this method, I would have needed to create a interface each time for the fetch of the singular countries and the fetch for all the countries. It makes the reusability of the useFetch function extremely tedious if you plan to fetch multiple different kinds of data with different structures.
  
 
 ### Useful resources
