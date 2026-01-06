@@ -19,6 +19,23 @@
 }
 
 
+/*ACCESSIBILITY & INTERACTIVITY=============================*/
+
+input:user-invalid {
+  outline: 3px solid var(--invalid-response);
+}
+
+input:user-valid{
+  outline: 3px solid var(--valid-response);
+}
+
+#search-error {
+  color: var(--invalid-notification);
+  font-style: italic;
+  margin-top: 1vw;
+  padding-left: 0.5vw;
+}
+
 
 /*MAIN CONTENT===============================*/
 
@@ -47,6 +64,11 @@
   transform: scale(1.05);
 }
 
+select:focus {
+  filter: var(--drop-shadow-focus);
+  outline: 2px solid var(--invalid-notification);
+}
+
 #region-select {
   height: 3vw;
   width: 10vw;
@@ -63,6 +85,13 @@ option {
 
 select option:last-of-type {
   border-radius: 5vw;
+}
+
+
+/*No Results*/
+
+#no-results-title{
+  font-size: 2.5rem;
 }
 
 /*Cards*/

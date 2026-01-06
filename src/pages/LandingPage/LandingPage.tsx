@@ -4,13 +4,20 @@ import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
 import "./LandingPage.css";
 import { useFilterContext } from "../../context/FilterContext/FilterContext";
+import { useState } from "react";
 
 export default function LandingPage() {
   //consume the theme context
   const { theme } = useThemeContext();
 
   const { currentFilter } = useFilterContext();
-  console.log(currentFilter);
+
+  const [cardsLength, setCardsLength] = useState(0);
+
+  const updateCardCount = (event: React.SyntheticEvent<HTMLUListElement>) => {
+    const newLength = event.currentTarget.childElementCount;
+    setCardsLength(newLength);
+  };
 
   //Get All the country Data
   const { data, loading, error } = useFetch(
@@ -22,27 +29,50 @@ export default function LandingPage() {
       <SearchAndFilterBar />
       <section id="main-content-container" className="row pt-4">
         <div id="card-grid-container">
-          <ul id="cards-batch" className="row row-cols-4">
+          <ul
+            id="cards-batch"
+            onBlur={updateCardCount}
+            className="row row-cols-4"
+          >
             {loading ? (
-              <li
+              <p
                 key="loadingText"
                 className="col-12"
-                style={{ listStyle: "none", width: "max-content" }}
+                style={{ width: "max-content" }}
               >
                 Loading Country Data...
                 <br />
                 Please Wait (￣o￣) . z Z
-              </li>
+              </p>
             ) : error ? (
-              <li
+              <p
                 key="errorText"
                 className="col-12"
-                style={{ listStyle: "none", width: "max-content" }}
+                style={{ width: "max-content" }}
               >
                 Error Loading Country Data 🚫
-              </li>
+              </p>
+            ) : data.filter((obj) =>
+                obj.name.common
+                  .toLowerCase()
+                  .includes(currentFilter.toLowerCase())
+              ).length === 0 ? (
+              <div id="no-results-container" className="d-flex flex-column justify-content-center align-items-center col-12">
+                <p id="no-results-title">No Results</p>
+                <p
+                  key="noresultsText"
+                  className="col-12"
+                  style={{ width: "max-content" }}
+                >
+                  Tough luck! 🍀
+                  <br/>
+                  That country doesn't exist yet. ○|￣|_ (。_。)(＃°Д°)
+                  <br/>
+                  Perhaps check your spelling. 🐝
+                </p>
+              </div>
             ) : //Filter By Region Select when the filter is set to any of the following values.
-              currentFilter === "Africa" ||
+            currentFilter === "Africa" ||
               currentFilter === "America" ||
               currentFilter === "Asia" ||
               currentFilter === "Europe" ||
@@ -57,6 +87,7 @@ export default function LandingPage() {
                       region={obj.region}
                       capital={obj.capital[0]}
                       cca3={obj.cca3}
+                      key={`${obj.cca3}-card`}
                     />
                   )
               )
@@ -73,6 +104,7 @@ export default function LandingPage() {
                       region={obj.region}
                       capital={obj.capital[0]}
                       cca3={obj.cca3}
+                      key={`${obj.cca3}-card`}
                     />
                   )
               )

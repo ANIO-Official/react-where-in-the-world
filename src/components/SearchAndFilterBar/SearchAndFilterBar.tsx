@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFilterContext } from "../../context/FilterContext/FilterContext";
 import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 
@@ -39,6 +39,31 @@ export default function SearchAndFilterBar() {
     }
   };
 
+  const [searchError, setSearchError] = useState<string | undefined>('')
+  const searchBar : HTMLInputElement | null = document.querySelector('#country-search-bar')
+
+  //Update Error Text
+  useEffect(() => {
+    
+     switch (true) {
+    case searchBar?.validity.patternMismatch:
+      searchBar?.setCustomValidity(
+        "Ensure the country name uses only letters a-z."
+      );
+      break;
+    case searchBar?.validity.tooShort:
+      searchBar?.setCustomValidity(
+        "3 characters minimum. It makes your search must easier. (o゜▽゜)o☆"
+      );
+      break;
+    default:
+      searchBar?.setCustomValidity("");
+    }
+    setSearchError(searchBar?.validationMessage)
+  }, [query])
+
+
+
   return (
     <search
       id="interaction-query-container"
@@ -71,7 +96,7 @@ export default function SearchAndFilterBar() {
             Search by Name
           </button>
         </div>
-        <span id="search-error"></span>
+        <span id="search-error">{searchError}</span>
       </div>
       <div id="region-select-container" className={"col-md-2"}>
         <select

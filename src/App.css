@@ -59,28 +59,11 @@ button.dark:focus {
   outline: 2px solid var(--invalid-notification);
 }
 
-
-
-select:focus {
-  filter: var(--drop-shadow-focus);
-  outline: 2px solid var(--invalid-notification);
-}
 #back-button:hover,
 #back-button.dark:hover,
 #theme-toggler:hover {
   background-color: var(--button-hover);
   color: white;
-}
-
-input:user-invalid {
-  outline: 3px solid var(--invalid-response);
-}
-
-#search-error {
-  color: var(--invalid-notification);
-  font-style: italic;
-  margin-top: 1vw;
-  padding-left: 0.5vw;
 }
 
 /*FONT=============================*/
