@@ -22,7 +22,7 @@ export default function SearchAndFilterBar() {
       setFilter(query);
     }
   };
-  const handleFilterOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFilterOnClick = () => {
     setFilter(query);
   };
   const handleFilterChangeOnSelect = (
@@ -33,7 +33,7 @@ export default function SearchAndFilterBar() {
   };
 
   //show all when blank and unfocused
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+  const handleBlur = () => {
     if (query === "") {
       setFilter(query);
     }

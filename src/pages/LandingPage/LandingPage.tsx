@@ -43,25 +43,6 @@ export default function LandingPage() {
               >
                 Error Loading Country Data 🚫
               </p>
-            ) : data.filter((obj) =>
-                obj.name.common
-                  .toLowerCase()
-                  .includes(currentFilter.toLowerCase())
-              ).length === 0 ? (
-              <div
-                id="no-results-container"
-                className="d-flex flex-column align-items-center"
-                style={{ width: "40vw" }}
-              >
-                <p id="no-results-title">No Results</p>
-                <p key="noresultsText">
-                  Tough luck! 🍀
-                  <br />
-                  That country doesn't exist yet. ○|￣|_ (。_。)(＃°Д°)
-                  <br />
-                  Perhaps check your spelling. 🐝
-                </p>
-              </div>
             ) : //Filter By Region Select when the filter is set to any of the following values.
             currentFilter === "Africa" ||
               currentFilter === "America" ||
@@ -82,6 +63,25 @@ export default function LandingPage() {
                     />
                   )
               )
+            ) : data.filter((obj) =>
+                obj.name.common
+                  .toLowerCase()
+                  .includes(currentFilter.toLowerCase())
+              ).length === 0 ? (
+              <div
+                id="no-results-container"
+                className="d-flex flex-column align-items-center"
+                style={{ width: "40vw" }}
+              >
+                <p id="no-results-title">No Results</p>
+                <p key="noresultsText">
+                  Tough luck! 🍀
+                  <br />
+                  That country doesn't exist yet. ○|￣|_ (。_。)(＃°Д°)
+                  <br />
+                  Perhaps check your spelling. 🐝
+                </p>
+              </div>
             ) : currentFilter !== "" ? ( //search bar typing search
               data.map(
                 (obj) =>
