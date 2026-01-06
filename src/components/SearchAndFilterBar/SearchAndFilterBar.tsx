@@ -67,13 +67,13 @@ export default function SearchAndFilterBar() {
   return (
     <search
       id="interaction-query-container"
-      className="row row-cols-md d-flex flex-column flex-md-row justify-content-between mb-4"
+      className="row row-cols-md d-flex flex-column flex-md-row justify-content-md-between mb-4"
     >
       <div
         id="country-search-bar-container"
-        className="col-md-10 d-flex flex-column"
+        className="col-md-10 d-flex flex-column text-start"
       >
-        <div className="text-start">
+        <div>
           <input
             onChange={handleChange}
             onKeyUp={handleFilterChangeOnSearch}
@@ -82,7 +82,7 @@ export default function SearchAndFilterBar() {
             className={`shadow-sm ${theme === "light" ? "dark" : "light"}`}
             type="search"
             name="search"
-            placeholder="Search for a country... Try 'Cambodia!'"
+            placeholder="Search for a country by name... Try 'Cambodia!'"
             minLength={3}
             pattern="[a-z A-Z]+"
             spellCheck="true"
@@ -91,14 +91,14 @@ export default function SearchAndFilterBar() {
           <button
             onClick={handleFilterOnClick}
             id="country-search-bar-button"
-            className={`ms-2 ${theme === "light" ? "dark" : "light"}`}
+            className={`${theme === "light" ? "dark" : "light"}`}
           >
-            Search by Name
+            Search
           </button>
         </div>
-        <span id="search-error">{searchError}</span>
+        <span id="search-error" className={`${theme === "light" ? "dark" : "light"}`}>{searchError}</span>
       </div>
-      <div id="region-select-container" className={"col-md-2"}>
+      <div id="region-select-container" className={"col-md-2 text-start"}>
         <select
           onChange={handleFilterChangeOnSelect}
           id="region-select"

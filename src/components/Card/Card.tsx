@@ -18,7 +18,7 @@ export default function Card({
   return (
     <Link to={`/country/${name}/${cca3}/detailed-view`} key={`${cca3}-link`}>
       <li
-        className={`card-template card col ${
+        className={`card-template card ${
           theme === "light" ? "dark" : "light"
         }`}
         tabIndex={0}

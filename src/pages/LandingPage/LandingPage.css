@@ -35,6 +35,9 @@ input:user-valid{
   margin-top: 1vw;
   padding-left: 0.5vw;
 }
+#search-error.dark{
+  color: white;
+}
 
 
 /*MAIN CONTENT===============================*/
@@ -56,6 +59,7 @@ input:user-valid{
 #country-search-bar-button{
   padding: 1rem;
   border: none;
+  margin-left: 1rem;
   border-radius: var(--input-border-rounded);
   background: linear-gradient(rgb(182, 240, 106), rgb(36, 192, 101), rgb(80, 190, 241));
 }
@@ -133,10 +137,16 @@ ul {
     padding-top: 2vw;
   }
   #country-search-bar {
-    width: 45vw;
+    width: 35vw;
     height: 5vw;
     font-size: 1rem;
   }
+  #country-search-bar-button{
+    width: 10vw;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
   #region-select {
     height: 5vw;
     width: 15vw;
@@ -167,10 +177,21 @@ ul {
   #country-search-bar {
     width: 80vw;
     height: 10vw;
-    margin-bottom: 10vw;
+    margin-bottom: 0.5rem;
     margin-top: 3vw;
     border-radius: var(--input-border-rounded-mobile);
   }
+  #country-search-bar-button{
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+  }
+  
+  #search-error {
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
   #region-select {
     height: 13vw;
     width: 50vw;

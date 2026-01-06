@@ -32,7 +32,7 @@ export default function LandingPage() {
           <ul
             id="cards-batch"
             onBlur={updateCardCount}
-            className="row row-cols-4"
+            className="row row-cols-md-3 row-cols-lg-4 justify-content-center"
           >
             {loading ? (
               <p
@@ -57,12 +57,10 @@ export default function LandingPage() {
                   .toLowerCase()
                   .includes(currentFilter.toLowerCase())
               ).length === 0 ? (
-              <div id="no-results-container" className="d-flex flex-column justify-content-center align-items-center col-12">
+              <div id="no-results-container" className="d-flex flex-column align-items-center" style={{width: '40vw'}}>
                 <p id="no-results-title">No Results</p>
                 <p
                   key="noresultsText"
-                  className="col-12"
-                  style={{ width: "max-content" }}
                 >
                   Tough luck! 🍀
                   <br/>
