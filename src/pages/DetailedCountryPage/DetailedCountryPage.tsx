@@ -5,26 +5,12 @@ import "./DetailedCountryPage.css";
 import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
 import BorderCountryButton from "../../components/BorderCountryButton/BorderCountryButton";
+import { getLastKey, getAllValues } from "../../utils/utilities";
 
 export default function DetailedCountryPage() {
   const navigation = useNavigate();
   const { name } = useParams();
 
-  //utility functions
-  function getLastKey(object: {}) {
-    if (object !== null && object !== undefined) {
-      const keysArray = Object.keys(object);
-      return keysArray[keysArray.length - 1];
-    }
-  }
-
-  //Return all properties of the passed object
-  function getAllValues(object: {}) {
-    if (object !== null && object !== undefined) {
-      const allValues: any[] = Object.values(object);
-      return allValues;
-    }
-  }
   //Get Specific country Data
   const { data, loading, error } = useFetch(
     `https://restcountries.com/v3.1/name/${name}?fullText=true`

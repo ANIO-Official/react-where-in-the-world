@@ -4,20 +4,12 @@ import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
 import useFetch from "../../custom-hooks/useFetch";
 import "./LandingPage.css";
 import { useFilterContext } from "../../context/FilterContext/FilterContext";
-import { useState } from "react";
 
 export default function LandingPage() {
   //consume the theme context
   const { theme } = useThemeContext();
 
   const { currentFilter } = useFilterContext();
-
-  const [cardsLength, setCardsLength] = useState(0);
-
-  const updateCardCount = (event: React.SyntheticEvent<HTMLUListElement>) => {
-    const newLength = event.currentTarget.childElementCount;
-    setCardsLength(newLength);
-  };
 
   //Get All the country Data
   const { data, loading, error } = useFetch(
@@ -31,7 +23,6 @@ export default function LandingPage() {
         <div id="card-grid-container">
           <ul
             id="cards-batch"
-            onBlur={updateCardCount}
             className="row row-cols-md-3 row-cols-lg-4 justify-content-center"
           >
             {loading ? (
@@ -57,15 +48,17 @@ export default function LandingPage() {
                   .toLowerCase()
                   .includes(currentFilter.toLowerCase())
               ).length === 0 ? (
-              <div id="no-results-container" className="d-flex flex-column align-items-center" style={{width: '40vw'}}>
+              <div
+                id="no-results-container"
+                className="d-flex flex-column align-items-center"
+                style={{ width: "40vw" }}
+              >
                 <p id="no-results-title">No Results</p>
-                <p
-                  key="noresultsText"
-                >
+                <p key="noresultsText">
                   Tough luck! 🍀
-                  <br/>
+                  <br />
                   That country doesn't exist yet. ○|￣|_ (。_。)(＃°Д°)
-                  <br/>
+                  <br />
                   Perhaps check your spelling. 🐝
                 </p>
               </div>
